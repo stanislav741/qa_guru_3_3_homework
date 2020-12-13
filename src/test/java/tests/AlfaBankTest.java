@@ -22,7 +22,7 @@ public class AlfaBankTest {
     @Test
     void AlfaBankInsurance() {
         open("https://alfabank.ru/");
-        $("#alfa").$(byText("Вклады")).click();
+        $("#alfa").$(byText("Вклады")).closest("span").click();
         $("#benefit").$("button").parent().click();
         $("body").shouldHave(text("Страхование вкладов"));
     }
