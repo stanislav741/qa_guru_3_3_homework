@@ -6,10 +6,10 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class AlfaBankTest {
+public class AlfaBankTests {
     String DepositsUrl = "make-money/deposits/";
     @Test
-    void AlfaBankDeposits() {
+    void alfaBankDeposits() {
         open("https://alfabank.ru");
         $("#alfa").$(byText("Вклады")).click();
         $("[data-widget-name='Heading']").shouldHave(text("Накопительные продукты"));
@@ -20,7 +20,7 @@ public class AlfaBankTest {
     }
 
     @Test
-    void AlfaBankInsurance() {
+    void alfaBankInsurance() {
         open("https://alfabank.ru/");
         $("#alfa").$(byText("Вклады")).closest("span").click();
         $("#benefit").$("button").parent().click();
