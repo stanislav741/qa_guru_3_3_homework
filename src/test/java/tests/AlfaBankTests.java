@@ -26,4 +26,13 @@ public class AlfaBankTests {
         $("#benefit").$("button").parent().click();
         $("body").shouldHave(text("Страхование вкладов"));
     }
+
+    @Test
+    void alfaBankInsuranceTab() {
+        open("https://alfabank.ru/");
+        $("#alfa").$(byText("Вклады")).click();
+        $("#good-to-know").$(byText("Страхование вкладов")).click();
+        $("#good-to-know").$(byText("Страхование вкладов")).parent().preceding(0).shouldHave(text("Описание"));
+        $("#good-to-know").$(byText("Страхование вкладов")).parent().sibling(0).shouldHave(text("Что такое вклад?"));
+    }
 }
