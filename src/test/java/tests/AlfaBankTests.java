@@ -9,6 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class AlfaBankTests {
     String DepositsUrl = "make-money/deposits/";
     @Test
+    //
     void alfaBankDeposits() {
         open("https://alfabank.ru");
         $("#alfa").$(byText("Вклады")).click();
@@ -18,16 +19,16 @@ public class AlfaBankTests {
         $("#filter").$(byText("Депозиты")).parent().click();
         $$("[data-widget-name='CatalogCard']").shouldHaveSize(5);
     }
-
     @Test
+
     void alfaBankInsurance() {
         open("https://alfabank.ru/");
         $("#alfa").$(byText("Вклады")).closest("span").click();
         $("#benefit").$("button").parent().click();
         $("body").shouldHave(text("Страхование вкладов"));
     }
-
     @Test
+
     void alfaBankInsuranceTab() {
         open("https://alfabank.ru/");
         $("#alfa").$(byText("Вклады")).click();
