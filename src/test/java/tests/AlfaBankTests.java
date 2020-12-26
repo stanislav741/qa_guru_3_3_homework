@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class AlfaBankTests {
     String DepositsUrl = "make-money/deposits/";
     @Test
-    //
+
     void alfaBankDeposits() {
         open("https://alfabank.ru");
         $("#alfa").$(byText("Вклады")).click();
