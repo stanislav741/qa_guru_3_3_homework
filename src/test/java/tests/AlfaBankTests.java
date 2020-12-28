@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
+import tests.pageobjects.HomePageMain;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -12,7 +13,7 @@ public class AlfaBankTests {
 
     void alfaBankDeposits() {
         open("https://alfabank.ru");
-        $("#alfa").$(byText("Вклады")).click();
+        new HomePageMain().main_section.$(byText("Вклады")).click();
         $("[data-widget-name='Heading']").shouldHave(text("Накопительные продукты"));
         $("#filter").$(byText("Депозиты")).parent().click();
         $("#alfa").$(byText("Архивные счета и депозиты")).parent().click();
@@ -23,7 +24,7 @@ public class AlfaBankTests {
 
     void alfaBankInsurance() {
         open("https://alfabank.ru/");
-        $("#alfa").$(byText("Вклады")).closest("span").click();
+        new HomePageMain().main_section.$(byText("Вклады")).closest("span").click();
         $("#benefit").$("button").parent().click();
         $("body").shouldHave(text("Страхование вкладов"));
     }
@@ -31,7 +32,7 @@ public class AlfaBankTests {
 
     void alfaBankInsuranceTab() {
         open("https://alfabank.ru/");
-        $("#alfa").$(byText("Вклады")).click();
+        new HomePageMain().main_section.$(byText("Вклады")).click();
         $("#good-to-know").$(byText("Страхование вкладов")).click();
         $("#good-to-know").$(byText("Страхование вкладов")).parent().preceding(0).shouldHave(text("Описание"));
         $("#good-to-know").$(byText("Страхование вкладов")).parent().sibling(0).shouldHave(text("Что такое вклад?"));
